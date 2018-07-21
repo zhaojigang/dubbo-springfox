@@ -61,7 +61,7 @@ public class ApiDocumentBootstrap implements ApplicationContextAware {
              */
             System.setProperty(DubboSpringfoxContants.SERVICE_GROUP, serviceGroup == null ? "" : serviceGroup);
         } catch (Exception e) {
-            LOGGER.error("kspringfox generate api-document error, msg：", e);
+            LOGGER.error("dubbo-springfox generate api-document error, msg：", e);
         }
     }
 }

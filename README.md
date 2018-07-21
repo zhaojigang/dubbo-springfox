@@ -59,7 +59,7 @@ public class Application {
 说明：
 
 * 添加了```@EnableSwagger2```注解：用于启动Swagger。
-* 在@ComponentScan注解中，添加```"io.hulk.dubbo.springfox.core"```，扫描dubbo-springfox中的相关Bean。（在实际开发中，springboot的启动类会放在基包下，基包通常会命名为groupId.artifactId，当然，其中的中划线会去掉；此时，默认@ComponentScan会扫描基包下的所有类，所以不加入@ComponentScan也行，但是此处由于需要扫描KSpringFox中的相关Bean，所以这里的@ComponentScan需要扫描两个包：基包 + ```"io.hulk.dubbo.springfox.core"```）
+* 在@ComponentScan注解中，添加```"io.hulk.dubbo.springfox.core"```，扫描dubbo-springfox中的相关Bean。（在实际开发中，springboot的启动类会放在基包下，基包通常会命名为groupId.artifactId，当然，其中的中划线会去掉；此时，默认@ComponentScan会扫描基包下的所有类，所以不加入@ComponentScan也行，但是此处由于需要扫描dubbo-springfox中的相关Bean，所以这里的@ComponentScan需要扫描两个包：基包 + ```"io.hulk.dubbo.springfox.core"```）
 
 对于如果只是想进行在UI界面上调用dubbo和springmvc接口的需要来讲，到这里就ok了！！！就是这么简单。
 
@@ -254,7 +254,7 @@ public class ApiDocumentBootstrap implements ApplicationContextAware {
              */
             System.setProperty(DubboSpringfoxContants.SERVICE_GROUP, serviceGroup == null ? "" : serviceGroup);
         } catch (Exception e) {
-            LOGGER.error("kspringfox generate api-document error, msg：", e);
+            LOGGER.error("dubbo-springfox generate api-document error, msg：", e);
         }
     }
 }
@@ -567,15 +567,15 @@ Class<?> dubboControllerClazz = jdkCompiler.compile(code, ApiDocumentBootstrap.c
 最后，设置系统属性。
 
 ```
-System.setProperty(KspringfoxContants.SERVICE_GROUP, serviceGroup);
+System.setProperty(DubboSpringfoxContants.SERVICE_GROUP, serviceGroup);
 ```
 将当前Dubbo服务的group读取出来并存储到系统属性中。在构建springfox.documentation.spring.web.plugins.Docket实例的时候使用。通过Docket实例可以配置一系列与SpringFox相关的信息，其中最重要的就是指定图形化UI界面在何时可以显示接口信息。
 
 ```
     @Bean
     public Docket docket() {
-        final String serviceGroup = System.getProperty(KspringfoxContants.SERVICE_GROUP, "dev");
-        if (serviceGroup.equals(KspringfoxContants.SERVICE_GROUP_PRODUCT)) {
+        final String serviceGroup = System.getProperty(DubboSpringfoxContants.SERVICE_GROUP, "dev");
+        if (serviceGroup.equals(DubboSpringfoxContants.SERVICE_GROUP_PRODUCT)) {
             return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.none()).build();
         }
         return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.any())
