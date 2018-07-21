@@ -1,0 +1,14 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://souche.oss-cn-hangzhou.aliyuncs.com/files/dubbo/dubbo.xsd">
+
+	<dubbo:application name="springboot-provider" />
+	<dubbo:registry address="zookeeper://10.211.55.5:2181"/>
+	<dubbo:protocol name="dubbo" port="20881" />
+
+	<bean id="bookService" class="io.hulk.dubbo.springfox.demo.springboot.apiimpl.BookServiceImpl" />
+	<dubbo:service interface="io.hulk.dubbo.springfox.demo.springboot.api.BookService" ref="bookService"/>
+</beans>
