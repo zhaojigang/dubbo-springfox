@@ -34,7 +34,7 @@ dubbo-springfox基于增强版的springfox：[https://github.com/zhaojigang/spri
 * 让springfox内核去支持@RequestModel注解
 * 获取swagger-ui的位置改成了：[https://github.com/zhaojigang/swagger-ui](https://github.com/zhaojigang/swagger-ui)，增强版的swagger-ui支持@RequestModel注解的参数解析和构造，支持axios进行ajax调用
 
-可以从这里直接获取的springfox的相关jar包，之后上传到nexus或者本地maven仓库即可。
+可以从[这里](https://pan.baidu.com/s/1r5hQ9fnILEM-nHWgZTOI-A)直接获取的springfox的相关jar包，之后上传到nexus或者本地maven仓库即可。
 
 ### 2.2 引入dubbo-springfox jar包
 ```
