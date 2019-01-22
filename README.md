@@ -1,6 +1,8 @@
 # dubbo-springfox
 extent springfox to support generate dubbo-api document 扩展springfox支持dubbo接口的文档化与图形化调用
 
+> github上有些图片丢掉了，所以我在简书上也把这篇文章贴了一下 https://www.jianshu.com/p/31dd7e329f4d
+
 * 一、dubbo-springfox特性简介
 * 二、dubbo-springfox入门案例
 * 三、dubbo-springfox基本原理
